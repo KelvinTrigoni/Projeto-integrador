@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row justify-content-md-center align-center height">
+    <div class="col col-lg-4">
+      <div class="row">
+        <div class="container-login">
+          <label
+            for="exampleFormControlInput1"
+            class="form-label texto-titulo padding"
+            >Guentaí</label
+          >
+          <div class="container-input col col-lg-8">
+            <form [formGroup]="login">
+              <label
+                for="exampleFormControlInput1"
+                class="form-label texto-sub-titulo"
+                >Email</label
+              >
+              <input
+                type="email"
+                class="form-control col-md-1"
+                placeholder="name@example.com"
+                formControlName="email"
+              />
+              <label
+                for="exampleFormControlInput1"
+                class="form-label texto-sub-titulo"
+                >Senha</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                placeholder="name@example.com"
+                formControlName="senha"
+              />
+            </form>
+          </div>
+          <button type="button" (click)="entrar()" class="btn btn-light col col-lg-5 color">
+            Entrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.success{
+  background-color: rgb(146, 255, 132);
+  color: #000000;
+}
+.warning{
+  background-color: rgb(255, 104, 104);
+  color: #ffffff;
+}
+
+#toast {
+  position: fixed;
+  top: -15rem;
+  user-select: none;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.2rem;
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.4s ease;
+}
+
+#toast.show {
+  top: 2rem;
+}

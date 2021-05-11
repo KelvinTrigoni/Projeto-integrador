@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap');
+
+body{
+  background-color: rgb(32 32 32);
+  font-family: 'Baloo Bhaina 2', cursive;
+}
+
+.align-center{
+  align-items: center;
+  justify-content: center;
+}
+
+.height{
+  height: 100%;
+}
+
+.texto-titulo{
+  font-size: 35px;
+  color: rgb(95,147,160);
+}
+
+.texto-sub-titulo{
+  margin-bottom: 1px;
+  color: rgb(95,147,160);
+}
+
+.padding{
+  padding: 30px;
+}
+
+.color{
+  color: rgb(95,147,160);
+}

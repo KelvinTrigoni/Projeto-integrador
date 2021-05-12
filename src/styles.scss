@@ -30,5 +30,13 @@ body{
 }
 
 .color{
-  color: rgb(95,147,160);
+  color: rgb(95,147,160) !important;
+}
+
+.bg-dark{
+  background-color: #373737 !important;
+}
+
+.container{
+  height: calc(100vh - 102px);
 }

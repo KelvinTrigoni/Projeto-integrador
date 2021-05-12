@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { ToastService } from './../../services/toast.service';
+import { ToastService } from '../../services/toast/toast.service';
+import { LoginService } from './../../services/login/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,7 +17,11 @@ export class LoginComponent implements OnInit {
     senha: new FormControl('', [Validators.required]),
   });
 
-  constructor(private toastService: ToastService) {}
+  constructor(
+    private toastService: ToastService,
+    private loginService: LoginService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,11 +29,14 @@ export class LoginComponent implements OnInit {
     const email = this.login.controls.email;
     const senha = this.login.controls.senha;
 
+
     if (this.validarForm({ email, senha })) {
       return;
     }
 
     this.toastService.success({ mensagem: 'Logado!' });
+    this.loginService.autenticar({ email: email.value, senha: senha.value });
+    this.router.navigate(['/home']);
   }
 
   private validarForm(obj: { email: any; senha: any }): boolean {

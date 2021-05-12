@@ -1,0 +1,11 @@
+.container-fila {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.row{
+  height: 100%;
+}

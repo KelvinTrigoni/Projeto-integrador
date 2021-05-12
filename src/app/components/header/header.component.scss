@@ -1,0 +1,42 @@
+.avatar{
+  border-radius: 200px;
+}
+
+.titulo{
+  font-size: 30px;
+}
+
+.sub-titulo{
+  font-size: 18px;
+}
+
+// .dropdown-menu-lg-start{
+//   left: auto;
+// }
+
+.avatar-drop{
+  display: block;
+}
+
+.avatar-drop2{
+  display: none;
+}
+
+.position{
+  position: absolute;
+  left: auto !important;
+  right: 0 !important;
+}
+@media only screen and (max-width: 992px)  {
+  .avatar-drop{
+    display: none;
+  }
+  .avatar-drop2{
+    display: block;
+  }
+  .position{
+    position: absolute;
+    left: 0 !important;
+    right: auto !important;
+  }
+}

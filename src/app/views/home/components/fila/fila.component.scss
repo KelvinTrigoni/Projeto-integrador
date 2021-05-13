@@ -1,0 +1,60 @@
+.container-fila {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.row{
+  height: 100%;
+}
+
+
+.container-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.titulo-header{
+  padding: 10px;
+}
+
+.sub-heade{
+  padding: 10px;
+}
+
+.border-header{
+  border-bottom: 2px solid rgb(153, 153, 153);
+}
+
+.border-header-container{
+  border-radius: 20px;
+}
+
+.table-dark{
+  --bs-table-bg: transparent !important;
+}
+
+.header-table{
+  padding: 15px 0 5px 0;
+}
+
+.card{
+  width: 100%;
+}
+
+.card-height{
+  height: 360px;
+}
+
+.text-align{
+  text-align: center;
+}
+
+.table-hover>tbody>tr:hover{
+  --bs-table-accent-bg: transparent !important;
+}

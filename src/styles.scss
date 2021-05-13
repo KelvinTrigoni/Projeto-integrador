@@ -6,9 +6,20 @@ body{
   font-family: 'Baloo Bhaina 2', cursive;
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
+
+
 .align-center{
   align-items: center;
   justify-content: center;
+}
+
+.align-center-d{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .height{

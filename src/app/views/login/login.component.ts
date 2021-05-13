@@ -34,9 +34,10 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    localStorage.setItem('tokenGuentai','123');
     this.toastService.success({ mensagem: 'Logado!' });
     this.loginService.autenticar({ email: email.value, senha: senha.value });
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home', {outlets: {home: ['fila']}}]);
   }
 
   private validarForm(obj: { email: any; senha: any }): boolean {

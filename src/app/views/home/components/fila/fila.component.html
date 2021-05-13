@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="container-fila">
+      <div class="col-10 col-sm-7 col-md-11 col-lg-5 align-center-d">
+        <div
+          class="card text-white bg-dark border-header-container"
+          style="max-width: 18rem"
+        >
+          <div class="card-header container-header border-header">
+            <div class="titulo-header">Pessoas aguardando</div>
+            <p class="sub-header">
+              {{ totalPessoas }}
+            </p>
+          </div>
+          <div class="card-body container-header">
+            <div class="titulo-header">Mesas disponíveis</div>
+            <p class="sub-header">
+              {{ mesasLivre }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 col-sm-12 col-md-11 col-lg-5 align-center-d ">
+        <div class="card text-white bg-dark border-header-container card-height">
+          <div class="header-table overflow-auto">
+            <table class="table table-dark table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-align"></th>
+                  <th scope="col" class="text-align">Nome</th>
+                  <th scope="col" class="text-align">N° de pessoas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of fila; let index = index">
+                  <td class="text-align">
+                    {{ index + 1 }}°
+                  </td>
+                  <td class="text-align">
+                    {{ i.nome }}
+                  </td>
+                  <td class="text-align">
+                    {{ i.nPessoas }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

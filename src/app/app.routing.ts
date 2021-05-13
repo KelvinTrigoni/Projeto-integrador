@@ -8,4 +8,4 @@ const appRoutes: Routes = [
   { path: 'home', loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule)},
 ];
 
-export const routers = RouterModule.forRoot(appRoutes);
+export const routers = RouterModule.forRoot(appRoutes, { useHash: true });

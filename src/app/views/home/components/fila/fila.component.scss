@@ -58,3 +58,11 @@
 .table-hover>tbody>tr:hover{
   --bs-table-accent-bg: transparent !important;
 }
+
+.margin{
+  padding-top: 50px;
+}
+.margin:last-child{
+  padding-top: 100px;
+  padding-bottom: 50px;
+}

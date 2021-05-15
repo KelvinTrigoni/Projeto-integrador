@@ -51,3 +51,19 @@ body{
 .container{
   height: calc(100vh - 102px);
 }
+
+.table-hover>tbody>tr:hover{
+  --bs-table-accent-bg: transparent !important;
+}
+
+.table-dark{
+  --bs-table-bg: transparent !important;
+}
+
+.text-align{
+  text-align: center;
+}
+
+.border-header-container{
+  border-radius: 20px;
+}

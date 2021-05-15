@@ -1,0 +1,39 @@
+.form-control{
+  color: white;
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-bottom: 1px solid rgb(95,147,160);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 0px;
+
+  &:focus, &:active,&:hover {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.pagging{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.pagging-two{
+  padding: 25px;
+}
+
+.card-height{
+  height: 360px;
+}
+
+.icon-red{
+  color: rgb(255, 104, 104);
+}
+
+.icon-blue{
+  color: rgb(53, 50, 250);
+}
+
+.d-flex{
+  display: flex;
+  justify-content: space-around;
+}

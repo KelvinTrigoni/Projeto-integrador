@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from "@angular/core";
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: "app-garcon",
   templateUrl: "./garcon.component.html",
@@ -104,6 +106,7 @@ export class GarconComponent implements OnInit {
   ];
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -136,5 +139,9 @@ export class GarconComponent implements OnInit {
 
   alterarGarcon(id: string): void {
     console.log(id);
+  }
+
+  cadastrar(): void {
+    this.router.navigate(['/home', {outlets: {home: ['cadastro']}}]);
   }
 }

@@ -1,4 +1,9 @@
 <div class="container pagging">
+  <div style="padding: 0 0 10px;">
+    <button type="button" (click)="cadastrar()" class="btn btn-light col-4 col-sm-4 col-md-3 col-lg-2 color">
+      Cadastrar
+    </button>
+  </div>
   <div class="row bg-dark border-header-container">
     <div class="pagging-two overflow-auto">
       <div class="mb-3">
@@ -26,8 +31,8 @@
                   {{ i.jornadaDe }} às {{ i.jornadaAte }}
                 </td>
                 <td class="text-align d-flex">
-                  <fa-icon [icon]="faTrash" class="icon-red" (click)="excluirGarcon(i.id)"></fa-icon>
-                  <fa-icon [icon]="faPen" class="icon-blue" (click)="alterarGarcon(i.id)"></fa-icon>
+                  <fa-icon [icon]="faTrash" class="icon-red click" (click)="excluirGarcon(i.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="icon-blue click" (click)="alterarGarcon(i.id)"></fa-icon>
                 </td>
               </tr>
             </tbody>

@@ -79,3 +79,12 @@ body{
 .text-center{
   text-align: center;
 }
+
+.btn-dark{
+  background-color: #272727;
+
+  &:focus, &:active,&:hover {
+    box-shadow: 0 0 0 0 transparent;
+    background-color: #272727;
+  }
+}

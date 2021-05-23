@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-fila",
@@ -124,7 +125,11 @@ export class FilaComponent implements OnInit {
 
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  cadastrar(): void {
+    this.router.navigate(['/home', {outlets: {home: ['fila-cadastro']}}]);
+  }
 }

@@ -32,7 +32,10 @@
   &:hover {
     background-color: transparent;
     color: white;
-    border-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid rgb(95, 147, 160);
   }
 }
 

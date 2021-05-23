@@ -142,6 +142,6 @@ export class GarconComponent implements OnInit {
   }
 
   cadastrar(): void {
-    this.router.navigate(['/home', {outlets: {home: ['cadastro']}}]);
+    this.router.navigate(['/home', {outlets: {home: ['garcom-cadastro']}}]);
   }
 }

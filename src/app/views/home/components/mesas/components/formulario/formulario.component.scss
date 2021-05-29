@@ -1,0 +1,55 @@
+.form-control {
+  color: white;
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-bottom: 1px solid rgb(95, 147, 160);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 0px;
+
+  &:focus,
+  &:active,
+  &:hover {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.pagging {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.hora {
+  background-color: transparent;
+  color: white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid rgb(95, 147, 160);
+  text-align: center;
+
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: transparent;
+    color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid rgb(95, 147, 160);
+  }
+}
+
+.as{
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pad-input{
+  padding-bottom: 30px;
+}
+
+.hora::-webkit-calendar-picker-indicator {
+  width: 0px;
+  height: 0px;
+}

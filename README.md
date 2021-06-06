@@ -2,7 +2,7 @@
 
 # link back-end https://github.com/jovemdan/GuentaiAPI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
 ## Development server
 

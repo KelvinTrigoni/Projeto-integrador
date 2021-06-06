@@ -10,9 +10,11 @@ import { FilaComponent } from "./components/fila/fila.component";
 import { GarconComponent } from './components/garcon/garcon.component';
 import { FormularioComponent } from './components/garcon/components/formulario/formulario.component';
 import { FormularioFilaComponent } from './components/fila/components/formulario-fila/formulario-fila.component';
+import { FormularioMesasComponent } from './components/mesas/components/formulario/formulario.component';
+import { MesasComponent } from './components/mesas/mesas.component';
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, FilaComponent, GarconComponent, FormularioComponent, FormularioFilaComponent],
+  declarations: [HomeComponent, HeaderComponent, FilaComponent, GarconComponent, FormularioComponent, FormularioFilaComponent, MesasComponent, FormularioMesasComponent],
   imports: [CommonModule, HomeRoutingModule,FontAwesomeModule,ReactiveFormsModule],
 })
 export class HomeModule {}

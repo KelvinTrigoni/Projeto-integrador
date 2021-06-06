@@ -1,0 +1,19 @@
+<div class="container pagging">
+  <div class="row bg-dark border-header-container">
+    <div class="pagging-two overflow-auto">
+      <div class="mb-3">
+        <form [formGroup]="form">
+          <label class="form-label texto-sub-titulo">Nome</label>
+          <input type="text" class="form-control" formControlName="nome" placeholder="Mesa 1">
+          <label class="form-label texto-sub-titulo">Capacidade</label>
+          <input type="text" class="form-control" formControlName="qtdPessoas" placeholder="1">
+        </form>
+        <div class="text-center">
+          <button type="button" (click)="cadastrar()" class="btn btn-dark col-4 col-sm-4 col-md-3 col-lg-2 color">
+            Cadastrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

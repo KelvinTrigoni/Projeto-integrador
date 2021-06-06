@@ -14,8 +14,8 @@
           </div>
           <div class="card-body container-header">
             <div class="titulo-header">Mesas disponíveis</div>
-            <p class="sub-header">
-              {{ mesasLivre }}
+            <p class="sub-header mesas" *ngFor="let i of mesasLivre">
+              {{ i.descricao }} <fa-icon [icon]="faPen" class="icon-blue click" (click)="vincularCliente(i.id, i.qtdCadeiras)"></fa-icon>
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@
                     {{ i.nome }}
                   </td>
                   <td class="text-align">
-                    {{ i.nPessoas }}
+                    {{ i.qtdPessoas }}
                   </td>
                 </tr>
               </tbody>

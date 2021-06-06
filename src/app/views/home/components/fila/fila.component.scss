@@ -50,3 +50,16 @@
   padding-top: 100px;
   padding-bottom: 50px;
 }
+
+.icon-blue{
+  color: rgb(53, 50, 250);
+  font-size: 15px;
+}
+
+.mesas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}

@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 import { FormularioFilaComponent } from './components/fila/components/formulario-fila/formulario-fila.component';
 import { MesasComponent } from './components/mesas/mesas.component';
 import { FormularioMesasComponent } from './components/mesas/components/formulario/formulario.component';
+import { FilaVinculoComponent } from './components/fila/components/fila-vinculo/fila-vinculo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'fila-cadastro', component: FormularioFilaComponent, outlet: 'home' },
   { path: 'mesas', component: MesasComponent, outlet: 'home' },
   { path: 'mesas-cadastro', component: FormularioMesasComponent, outlet: 'home' },
+  { path: 'fila-vinculo', component: FilaVinculoComponent, outlet: 'home' },
 ];
 
 @NgModule({

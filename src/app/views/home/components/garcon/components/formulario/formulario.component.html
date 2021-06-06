@@ -5,18 +5,26 @@
         <form [formGroup]="form">
           <label class="form-label texto-sub-titulo">Nome</label>
           <input type="text" class="form-control" formControlName="nome" placeholder="João">
-          <label class="form-label texto-sub-titulo">Nobrenome</label>
-          <input type="text" class="form-control" formControlName="sobrenome" placeholder="Silva">
+          <label class="form-label texto-sub-titulo">Login</label>
+          <input type="text" class="form-control" formControlName="login" placeholder="Joao">
+          <label class="form-label texto-sub-titulo">Senha</label>
+          <input type="text" class="form-control" formControlName="senha" placeholder="Joao@123">
           <label class="form-label texto-sub-titulo">Horário</label>
           <div class="d-flex pad-input">
-            <input type="time" class="hora" id="time" formControlName="horarioDe">
+            <input type="time" class="hora" id="time" formControlName="horaInicio">
             <span class="as"> as </span>
-            <input type="time" class="hora" id="time" formControlName="horarioAte">
+            <input type="time" class="hora" id="time" formControlName="horaFim">
+          </div>
+          <label class="form-label texto-sub-titulo">Perfil</label>
+          <div class="input-group mb-3">
+            <select class="form-select form-control" id="inputGroupSelect01" formControlName="perfilId">
+              <option *ngFor="let i of perfil" value="{{i.id}}">{{i.descricao}}</option>
+            </select>
           </div>
         </form>
         <div class="text-center">
-          <button type="button" (click)="cadastrar()" class="btn btn-dark col-4 col-sm-4 col-md-3 col-lg-2 color">
-            Cadastrar
+          <button type="button" (click)="edicao ? alterar() : cadastrar()" class="btn btn-dark col-4 col-sm-4 col-md-3 col-lg-2 color">
+            {{edicao ? 'Alterar' : 'Cadastrar'}}
           </button>
         </div>
       </div>

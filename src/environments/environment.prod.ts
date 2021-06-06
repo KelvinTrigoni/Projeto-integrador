@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  guentai: 'http://localhost:8081/'
+  guentai: 'https://bbf5e12f058c.ngrok.io/api'
 };

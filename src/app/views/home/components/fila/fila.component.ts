@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { take } from "rxjs/operators";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+
+import { ServiceService } from "@app/services/geral/service.service";
 
 @Component({
   selector: "app-fila",
@@ -7,129 +11,28 @@ import { Router } from '@angular/router';
   styleUrls: ["./fila.component.scss"],
 })
 export class FilaComponent implements OnInit {
-  totalPessoas: number = 8;
-  mesasLivre: number[] = [1, 2, 3];
-  fila: any[] = [
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
-    {
-      nome: "Kelvin",
-      nPessoas: 4,
-    },
-    {
-      nome: "Danilo",
-      nPessoas: 2,
-    },
-    {
-      nome: "Rogerio",
-      nPessoas: 2,
-    },
-    {
-      nome: "William",
-      nPessoas: 24,
-    },
+  faPen = faPen;
 
-  ];
+  mesasLivre: number[] = [];
+  fila: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private services: ServiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.services.getCliente().pipe(take(1)).subscribe((suc: any[]) =>{
+      this.fila = suc.filter(item => item.status === 'aguardando');
+    });
+    this.services.getMesa().pipe(take(1)).subscribe((suc: any[]) =>{
+      this.mesasLivre = suc.filter(item => item.status === 'livre');
+    });
+  }
 
   cadastrar(): void {
-    this.router.navigate(['/home', {outlets: {home: ['fila-cadastro']}}]);
+    this.router.navigate(["/home", { outlets: { home: ["fila-cadastro"] } }]);
+  }
+
+  vincularCliente(id: number, qtd: number){
+    localStorage.setItem('mesa', JSON.stringify({id: id, qtd: qtd}));
+    this.router.navigate(["/home", { outlets: { home: ["fila-vinculo"] } }]);
   }
 }

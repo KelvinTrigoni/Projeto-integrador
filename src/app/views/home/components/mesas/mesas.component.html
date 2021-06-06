@@ -23,16 +23,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let i of filteredOptions | async; let index = index">
+              <tr *ngFor="let i of filteredOptions | async">
                 <td class="text-align">
-                  {{ i.nome }}
+                  {{ i.descricao }}
                 </td>
                 <td class="text-align">
-                  {{i.qtdPessoas}}
+                  {{i.qtdCadeiras}}
                 </td>
                 <td class="text-align d-flex">
-                  <fa-icon [icon]="faTrash" class="icon-red click" (click)="excluirGarcon(i.id)"></fa-icon>
-                  <fa-icon [icon]="faPen" class="icon-blue click" (click)="alterarGarcon(i.id)"></fa-icon>
+                  <fa-icon [icon]="faTrash" class="icon-red click" (click)="excluirMesa(i.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="icon-blue click" (click)="alterarMesa(i.id)"></fa-icon>
                 </td>
               </tr>
             </tbody>

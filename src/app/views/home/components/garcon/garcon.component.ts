@@ -1,10 +1,12 @@
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { startWith, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { startWith, map, take } from "rxjs/operators";
+import { Observable } from "rxjs";
 import { Component, OnInit } from "@angular/core";
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import { Router } from "@angular/router";
 
-import { Router } from '@angular/router';
+import { ServiceService } from "@app/services/geral/service.service";
+import { ToastService } from "@app/services/toast/toast.service";
 
 @Component({
   selector: "app-garcon",
@@ -18,109 +20,38 @@ export class GarconComponent implements OnInit {
   filteredOptions: Observable<any[]>;
   filtroForm: FormGroup;
 
-  garcom: any[] = [
-    {
-      id: 'dasdasd',
-      nome: "Enzam",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Kelvin",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Hendrao",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Will",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Danilo",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Rogerio",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Misterios",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Enzam",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Kelvin",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Hendrao",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Will",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Danilo",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Rogerio",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-    {
-      id: 'dasdasd',
-      nome: "Misterios",
-      jornadaDe: "14:00:00",
-      jornadaAte: "21:00:00",
-    },
-  ];
+  garcom: any[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private toastService: ToastService,
+    private services: ServiceService
   ) {}
 
   ngOnInit(): void {
     this.filtro();
+    this.buscarFuncionario();
   }
 
-  filtro(){
+  buscarFuncionario(){
+    this.services
+    .getFuncionarios()
+    .pipe(take(1))
+    .subscribe((suc: any[]) => {
+      this.garcom = suc.filter((item) => item.perfilId === 2);
+      this.filtro();
+    });
+  }
+
+  filtro() {
     this.filtroForm = this.formBuilder.group({
-      filtro: [''],
+      filtro: [""],
     });
 
-    this.filteredOptions = this.filtroForm.get('filtro').valueChanges.pipe(
+    this.filteredOptions = this.filtroForm.get("filtro").valueChanges.pipe(
       startWith(null),
-      map((value) => this._filter(value)),
+      map((value) => this._filter(value))
     );
   }
 
@@ -130,18 +61,28 @@ export class GarconComponent implements OnInit {
     }
 
     const filterValue = value.toLowerCase();
-    return this.garcom.filter((option) => option.nome.toLowerCase().includes(filterValue));
+    return this.garcom.filter((option) =>  option.nome.toLowerCase().includes(filterValue));
   }
 
-  excluirGarcon(id: string): void {
-    console.log(id);
+  excluirGarcon(id: number): void {
+    this.services
+      .deleteFuncionarios(id)
+      .pipe(take(1))
+      .subscribe(
+        (suc: any[]) => {
+          this.buscarFuncionario();
+          this.toastService.success({ mensagem: "excluido!" });
+        },
+        (err: any) => this.toastService.warning({ mensagem: "erro inesperado" })
+      );
   }
 
   alterarGarcon(id: string): void {
-    console.log(id);
+    localStorage.setItem('idGarcom', id);
+    this.router.navigate(["/home", { outlets: { home: ["garcom-cadastro"]}}]);
   }
 
   cadastrar(): void {
-    this.router.navigate(['/home', {outlets: {home: ['garcom-cadastro']}}]);
+    this.router.navigate(["/home", { outlets: { home: ["garcom-cadastro"] } }]);
   }
 }

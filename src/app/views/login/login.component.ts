@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ToastService } from '../../services/toast/toast.service';
-import { LoginService } from './../../services/login/login.service';
 
 
 @Component({
@@ -19,7 +18,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private toastService: ToastService,
-    private loginService: LoginService,
     private router: Router,
   ) {}
 
@@ -36,7 +34,6 @@ export class LoginComponent implements OnInit {
 
     localStorage.setItem('tokenGuentai','123');
     this.toastService.success({ mensagem: 'Logado!' });
-    this.loginService.autenticar({ email: email.value, senha: senha.value });
     this.router.navigate(['/home', {outlets: {home: ['fila']}}]);
   }
 

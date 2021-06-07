@@ -56,6 +56,10 @@ export class ServiceService {
     return this.http.post(`${this.envServices.env["guentai"].api}/Cliente`, body, this.httpOptions);
   }
 
+  public deleteCliente(id: number): Observable<any>{
+    return this.http.delete(`${this.envServices.env["guentai"].api}/Cliente/${id}`, this.httpOptions);
+  }
+
   public getCliente(): Observable<any>{
     return this.http.get(`${this.envServices.env["guentai"].api}/Cliente`, this.httpOptions);
   }

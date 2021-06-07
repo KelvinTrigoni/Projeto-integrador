@@ -39,7 +39,11 @@ export class GarconComponent implements OnInit {
     .getFuncionarios()
     .pipe(take(1))
     .subscribe((suc: any[]) => {
-      this.garcom = suc.filter((item) => item.perfilId === 2);
+      if(localStorage.getItem('tokenGuentai') === 'adm'){
+        this.garcom = suc;
+      }else{
+        this.garcom = suc.filter((item) => item.perfilId === 2);
+      }
       this.filtro();
     });
   }

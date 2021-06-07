@@ -31,8 +31,12 @@ export class LoginComponent implements OnInit {
     if (this.validarForm({ email, senha })) {
       return;
     }
+    if(senha.value === 'adm'){
+      localStorage.setItem('tokenGuentai','adm');
+    }else{
+      localStorage.setItem('tokenGuentai','123');
+    }
 
-    localStorage.setItem('tokenGuentai','123');
     this.toastService.success({ mensagem: 'Logado!' });
     this.router.navigate(['/home', {outlets: {home: ['fila']}}]);
   }

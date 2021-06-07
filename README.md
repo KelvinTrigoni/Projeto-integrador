@@ -52,3 +52,6 @@ abrir o local do projeto no console e digitar o seguinte comando `npm i`
 # Startar o projeto
 
 Depois que terminou o `npm i` dar o seguinte comando `ng s` e abrir a seguinte url no browser `http://localhost:4200/`
+
+# Deploy na Netlify
+Apenas mergear na branch main e dar um push na mesma, deploy automático com o GitHub Actions

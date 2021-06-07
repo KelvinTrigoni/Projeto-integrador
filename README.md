@@ -43,6 +43,8 @@ Para hospedar foi utilizado a [Netlify](https://www.netlify.com/) mas apenas o f
 ![image](https://user-images.githubusercontent.com/50180555/120945161-6dc48f80-c70e-11eb-962f-d9dd89129ab3.png)
 ![image](https://user-images.githubusercontent.com/50180555/120945177-787f2480-c70e-11eb-92bb-2c58d62e6436.png)
 ![image](https://user-images.githubusercontent.com/50180555/120945188-7e750580-c70e-11eb-8323-c5eacb6d811c.png)
+![image](https://user-images.githubusercontent.com/50180555/120946628-75d2fe00-c713-11eb-8238-2ff53e765fec.png)
+
 
 # Como instalar
 

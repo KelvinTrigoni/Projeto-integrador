@@ -32,7 +32,7 @@ Para o front-end foi utilizado o framework Angular na sua versão 12, baseado no
 Para o back-end foi utilizado apenas o C# e para o banco o SQLite.
 Para hospedar foi utilizado a [Netlify](https://www.netlify.com/) mas apenas o front-end está hospedado.
 
-![image](https://user-images.githubusercontent.com/50180555/120945041-e840df80-c70d-11eb-8a87-cbf3bcb3efe7.png)
+![image](https://user-images.githubusercontent.com/50180555/120945361-238fde00-c70f-11eb-8fdc-3db2796b2928.png)
 
 ## 5. Entidades do banco
 ![image](https://user-images.githubusercontent.com/50180555/120945100-2ccc7b00-c70e-11eb-9089-18540e6e7da8.png)

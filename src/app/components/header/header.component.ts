@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  perfil(){
+    this.router.navigate(['/home', {outlets: {home: ['perfil']}}]);
+  }
+
 }

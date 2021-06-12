@@ -18,6 +18,8 @@ export class FilaVinculoComponent implements OnInit {
   mesaLocal: any;
   mesa: any;
 
+  // TODO, analizar esse código
+
   constructor(
     private formBuilder: FormBuilder,
     private toastService: ToastService,
@@ -27,7 +29,7 @@ export class FilaVinculoComponent implements OnInit {
     this.form = this.formBuilder.group({
       clienteId: ["", [Validators.required]],
       mesaId: ["", [Validators.required]],
-      funcionarioId: ["aguardando", [Validators.required]],
+      funcionarioId: ["", [Validators.required]],
       status: ["acupado", [Validators.required]],
     });
    }
@@ -68,6 +70,7 @@ export class FilaVinculoComponent implements OnInit {
       this.form.reset();
     });
 
+    // TODO, passar funcionario
     this.services
     .putMesa({id: this.mesaLocal.id, status: 'ocupada'})
     .pipe(take(1))

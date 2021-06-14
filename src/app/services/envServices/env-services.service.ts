@@ -11,12 +11,14 @@ export class EnvServicesService {
 
   getEnvironment(){
     if(isDevMode()){
+      console.log('HOMOLOG');      
       return this.env = {
         "guentai":{
           api: environment.guentai
         }
       }
     }else{
+      console.log('PROD');
       return this.env = {
         "guentai":{
           api: envProd.guentai

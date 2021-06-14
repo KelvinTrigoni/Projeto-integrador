@@ -18,8 +18,8 @@
             <thead>
               <tr>
                 <th scope="col" class="text-align">Nome</th>
-                <th scope="col" class="text-align">N° de pessoas</th>
-                <th scope="col" class="text-align"></th>
+                <th scope="col" class="text-align">Jornada</th>
+                <th scope="col" class="text-align" *ngIf="adm"></th>
               </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                 <td class="text-align">
                   {{ i.horaInicio }} às {{ i.horaFim }}
                 </td>
-                <td class="text-align d-flex">
+                <td class="text-align d-flex" *ngIf="adm">
                   <fa-icon [icon]="faTrash" class="icon-red click" (click)="excluirGarcon(i.id)"></fa-icon>
                   <fa-icon [icon]="faPen" class="icon-blue click" (click)="alterarGarcon(i.id)"></fa-icon>
                 </td>

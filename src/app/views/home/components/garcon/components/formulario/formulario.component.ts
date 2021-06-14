@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { take } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 import { ToastService } from "../../../../../../services/toast/toast.service";
 import { ServiceService } from "@app/services/geral/service.service";
@@ -21,11 +22,12 @@ export class FormularioComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private services: ServiceService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       nome: ["", [Validators.required, Validators.minLength(2)]],
-      login: ["", [Validators.required, Validators.minLength(3)]],
+      username: ["", [Validators.required, Validators.minLength(3)]],
       senha: ["", [Validators.required, Validators.minLength(3)]],
       horaInicio: ["", Validators.required],
       horaFim: ["", Validators.required],
@@ -79,6 +81,7 @@ export class FormularioComponent implements OnInit {
       (suc: any) => {
         console.log(suc);
 
+        this.router.navigate(["/home", { outlets: { home: ["garcom"] } }]);
         this.toastService.success({ mensagem: "alterado!" });
         this.form.reset();
       },

@@ -13,4 +13,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sair(){
+    localStorage.removeItem('tokenGuentai');
+    this.router.navigate(['/login']);
+  }
+
+  perfil(){
+    this.router.navigate(['/home', {outlets: {home: ['perfil']}}]);
+  }
+
 }

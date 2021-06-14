@@ -29,6 +29,7 @@
                   <th scope="col" class="text-align"></th>
                   <th scope="col" class="text-align">Nome</th>
                   <th scope="col" class="text-align">N° de pessoas</th>
+                  <th scope="col" class="text-align"></th>
                 </tr>
               </thead>
               <tbody>
@@ -41,6 +42,9 @@
                   </td>
                   <td class="text-align">
                     {{ i.qtdPessoas }}
+                  </td>
+                  <td class="text-align d-flex">
+                    <fa-icon [icon]="faTrash" class="icon-red click" (click)="excluirCliente(i.id)"></fa-icon>
                   </td>
                 </tr>
               </tbody>

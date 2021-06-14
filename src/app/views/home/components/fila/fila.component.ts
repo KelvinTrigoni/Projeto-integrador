@@ -4,6 +4,7 @@ import { take } from "rxjs/operators";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import { ServiceService } from "@app/services/geral/service.service";
+import { ToastService } from "@app/services/toast/toast.service";
 
 @Component({
   selector: "app-fila",
@@ -17,29 +18,48 @@ export class FilaComponent implements OnInit {
   mesasLivre: number[] = [];
   fila: any[] = [];
 
-  constructor(private router: Router, private services: ServiceService) {}
+  constructor(
+    private router: Router,
+    private services: ServiceService,
+    private toast: ToastService
+  ) {}
 
   ngOnInit(): void {
-    this.services.getCliente().pipe(take(1)).subscribe((suc: any[]) =>{
-      this.fila = suc.filter(item => item.status === 'aguardando');
-    });
-    this.services.getMesa().pipe(take(1)).subscribe((suc: any[]) =>{
-      this.mesasLivre = suc.filter(item => item.status === 'livre');
-    });
+    this.services
+      .getCliente()
+      .pipe(take(1))
+      .subscribe((suc: any[]) => {
+        this.fila = suc.filter((item) => item.status === "aguardando");
+      });
+    this.services
+      .getMesa()
+      .pipe(take(1))
+      .subscribe((suc: any[]) => {
+        this.mesasLivre = suc.filter((item) => item.status === "livre");
+      });
   }
 
   cadastrar(): void {
     this.router.navigate(["/home", { outlets: { home: ["fila-cadastro"] } }]);
   }
 
-  vincularCliente(id: number, qtd: number){
-    localStorage.setItem('mesa', JSON.stringify({id: id, qtd: qtd}));
+  vincularCliente(id: number, qtd: number) {
+    localStorage.setItem("mesa", JSON.stringify({ id: id, qtd: qtd }));
     this.router.navigate(["/home", { outlets: { home: ["fila-vinculo"] } }]);
   }
 
   excluirCliente(id: number) {
-    this.services.deleteCliente(id).pipe(take(1)).subscribe((suc: any[]) =>{
-      this.mesasLivre = suc.filter(item => item.status === 'livre');
-    });
+    this.services
+      .deleteCliente(id)
+      .pipe(take(1))
+      .subscribe(
+        (suc: any[]) => {
+          this.ngOnInit();
+          this.toast.success({ mensagem: "Excluído com sucesso!" });
+        },
+        (error) => {
+          this.toast.warning({ mensagem: "Erro ao excluir cliente da fila!" });
+        }
+      );
   }
 }

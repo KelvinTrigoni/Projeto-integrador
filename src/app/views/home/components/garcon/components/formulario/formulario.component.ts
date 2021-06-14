@@ -61,8 +61,6 @@ export class FormularioComponent implements OnInit {
     .pipe(take(1))
     .subscribe(
       (suc: any) => {
-        console.log(suc);
-
         this.toastService.success({ mensagem: "cadastrado!" });
         this.form.reset();
       },
@@ -79,8 +77,6 @@ export class FormularioComponent implements OnInit {
     .pipe(take(1))
     .subscribe(
       (suc: any) => {
-        console.log(suc);
-
         this.router.navigate(["/home", { outlets: { home: ["garcom"] } }]);
         this.toastService.success({ mensagem: "alterado!" });
         this.form.reset();

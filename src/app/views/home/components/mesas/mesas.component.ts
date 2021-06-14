@@ -80,8 +80,6 @@ export class MesasComponent implements OnInit {
   }
 
   alterarMesa(id: string): void {
-    console.log(id);
-
     localStorage.setItem('idMesa', id);
     this.router.navigate(["/home", { outlets: { home: ["mesas-cadastro"] } }]);
   }

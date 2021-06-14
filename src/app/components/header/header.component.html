@@ -10,7 +10,7 @@
           <a class="nav-link " [class.active]="router.url == '/home/(home:fila)' || router.url == '/home/(home:fila-cadastro)'" aria-current="page" [routerLink]="['/home', {outlets: {home: ['fila']}}]">Fila de espera</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [class.active]="router.url == '/home/(home:garcom)' || router.url == '/home/(home:garcom-cadastro)'" [routerLink]="['/home', {outlets: {home: ['garcom']}}]">Garçons</a>
+          <a class="nav-link" [class.active]="router.url == '/home/(home:garcom)' || router.url == '/home/(home:garcom-cadastro)'" [routerLink]="['/home', {outlets: {home: ['garcom']}}]">Funcionário</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [class.active]="router.url == '/home/(home:mesas)' || router.url == '/home/(home:mesas-cadastro)'" [routerLink]="['/home', {outlets: {home: ['mesas']}}]">Mesas</a>
@@ -20,7 +20,7 @@
             <img src="https://svgsilh.com/png-1024/2098873.png" alt="" width="70" height="70" class="d-inline-block align-text-top avatar">
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-dark position" aria-labelledby="navbarDropdownMenuLink">
-            <li class="click"><a class="dropdown-item color" (click)="perfil()">Perfil</a></li>
+            <!-- <li class="click"><a class="dropdown-item color" (click)="perfil()">Perfil</a></li> -->
             <li class="click"><a class="dropdown-item color" (click)="sair()">Sair</a></li>
           </ul>
         </li>
@@ -32,7 +32,7 @@
           <img src="https://svgsilh.com/png-1024/2098873.png" alt="" width="70" height="70" class="d-inline-block align-text-top avatar">
         </a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start bg-dark position" aria-labelledby="navbarDropdownMenuLink">
-          <li class="click"><a class="dropdown-item color" (click)="perfil()">Perfil</a></li>
+          <!-- <li class="click"><a class="dropdown-item color" (click)="perfil()">Perfil</a></li> -->
           <li class="click"><a class="dropdown-item color" (click)="sair()">Sair</a></li>
         </ul>
       </li>

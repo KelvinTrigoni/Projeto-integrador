@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { take } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 import { ToastService } from "@app/services/toast/toast.service";
 import { ServiceService } from "@app/services/geral/service.service";
@@ -21,7 +22,7 @@ export class FormularioMesasComponent implements OnInit {
       status: "livre",
     },
     {
-      status: "ocupado",
+      status: "ocupada",
     },
   ];
 
@@ -30,6 +31,7 @@ export class FormularioMesasComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private toastService: ToastService,
+    private router: Router,
     private services: ServiceService
   ) {
     this.form = this.formBuilder.group({
@@ -66,8 +68,6 @@ export class FormularioMesasComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (suc: any) => {
-          console.log(suc);
-
           this.toastService.success({ mensagem: "cadastrado!" });
           this.form.reset();
         },
@@ -86,8 +86,7 @@ export class FormularioMesasComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (suc: any) => {
-          console.log(suc);
-
+          this.router.navigate(["/home", { outlets: { home: ["mesas"] } }]);
           this.toastService.success({ mensagem: "alterado!" });
           this.form.reset();
         },

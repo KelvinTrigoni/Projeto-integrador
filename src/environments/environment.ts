@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  guentai: 'https://guentaaiapi.azurewebsites.net/api'
+  guentai: 'https://1329a7f123d9.ngrok.io/api'
 };

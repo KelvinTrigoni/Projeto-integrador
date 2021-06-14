@@ -41,8 +41,6 @@ export class FormularioFilaComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (suc: any) => {
-          console.log(suc);
-
           this.toastService.success({ mensagem: "cadastrado!" });
           this.form.reset();
         },

@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { EnvServicesService } from '../envServices/env-services.service';
-import { Login } from 'src/app/interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
+  token = localStorage.getItem('tokenGuentai');
 
   constructor(
     private http: HttpClient,
@@ -16,13 +16,12 @@ export class ServiceService {
   ) {}
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Authorization': `Bearer ${this.token}` }),
   };
 
-  // public autenticar(params: Login): Observable<any> {
-  //   // return this.http.post(`${this.envServices.env["guentai"].api}`, params, this.httpOptions);
-  //   return;
-  // }
+  public login(body: any): Observable<any>{
+    return this.http.post(`${this.envServices.env["guentai"].api}/account/login`,body);
+  }
 
   public postClienteMesa(body: any): Observable<any>{
     return this.http.post(`${this.envServices.env["guentai"].api}/ClienteMesa`,body , this.httpOptions);
@@ -54,6 +53,10 @@ export class ServiceService {
 
   public postCliente(body: any): Observable<any>{
     return this.http.post(`${this.envServices.env["guentai"].api}/Cliente`, body, this.httpOptions);
+  }
+
+  public deleteCliente(id: number): Observable<any>{
+    return this.http.delete(`${this.envServices.env["guentai"].api}/Cliente/${id}`, this.httpOptions);
   }
 
   public getCliente(): Observable<any>{

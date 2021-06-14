@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 
 import { ServiceService } from "@app/services/geral/service.service";
 import { ToastService } from "@app/services/toast/toast.service";
+import { Perfil } from './../../../../enums/perfil';
 
 @Component({
   selector: "app-garcon",
@@ -19,6 +20,7 @@ export class GarconComponent implements OnInit {
 
   filteredOptions: Observable<any[]>;
   filtroForm: FormGroup;
+  adm: any;
 
   garcom: any[] = [];
 
@@ -30,6 +32,9 @@ export class GarconComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    let perfilId = Number(localStorage.getItem('perfilGuentai'));
+    this.adm = Perfil[perfilId] === 'ADM' ? true : false;
+
     this.filtro();
     this.buscarFuncionario();
   }

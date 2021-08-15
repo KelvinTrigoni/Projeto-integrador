@@ -27,4 +27,12 @@ export class ToastService {
       tempo: params.tempo,
     });
   }
+
+  html(params: Toast): void {
+    this.mostrarToast.next({
+      tipo: 'html',
+      html: params.html,
+      tempo: params.tempo,
+    });
+  }
 }

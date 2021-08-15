@@ -1,5 +1,10 @@
-<section>
+<section *ngIf="tipo !== 'html'">
   <div id="toast" class="center" [class.show]="show" class="{{tipo}}">
     <div id="mensagem">{{mensagem}}</div>
+  </div>
+</section>
+<section *ngIf="tipo === 'html'">
+  <div id="toastHtml" class="center" [class.showHtml]="show">
+    <div id="mensagem" [innerHTML]="html"></div>
   </div>
 </section>

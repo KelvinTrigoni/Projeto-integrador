@@ -6,6 +6,8 @@ import { ToastService } from "@app/services/toast/toast.service";
 import { ServiceService } from "@app/services/geral/service.service";
 import { take } from "rxjs/operators";
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private toastService: ToastService,
     private router: Router,
-    private service: ServiceService
+    private service: ServiceService,
+    private _sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {}
@@ -59,5 +62,9 @@ export class LoginComponent implements OnInit {
     }
 
     return false;
+  }
+
+  public toast(){
+    this.toastService.html({ html: this._sanitizer.bypassSecurityTrustHtml(`<b style="color: black; background-color: rgb(255, 255, 255); width: 200px; height: 50px; padding: 10px; border-radius: 4px;"><u>Teste de html no toast</u></b>`) });
   }
 }

@@ -10,31 +10,42 @@
           >
           <div class="container-input col col-lg-8">
             <form [formGroup]="login">
-              <label
-                for="exampleFormControlInput1"
-                class="form-label texto-sub-titulo"
-                >Usuário</label
-              >
-              <input
-                type="email"
-                class="form-control col-md-1"
-                placeholder="joao"
-                formControlName="username"
-              />
-              <label
-                for="exampleFormControlInput1"
-                class="form-label texto-sub-titulo"
-                >Senha</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                placeholder="senha"
-                formControlName="senha"
-              />
+              <div class="containerInput">
+                <input
+                  autocomplete="off"
+                  class="form-control col-md-1"
+                  type="text"
+                  required="{{ !login.get('username').valid }}"
+                  formControlName="username"
+                />
+                <span
+                  for="exampleFormControlInput1"
+                  class="form-label texto-sub-titulo"
+                  >Usuário</span
+                >
+              </div>
+
+              <div class="containerInput">
+                <input
+                  autocomplete="off"
+                  class="form-control"
+                  type="password"
+                  required="{{ !login.get('senha').valid }}"
+                  formControlName="senha"
+                />
+                <span
+                  for="exampleFormControlInput1"
+                  class="form-label texto-sub-titulo"
+                  >Senha</span
+                >
+              </div>
             </form>
           </div>
-          <button type="button" (click)="entrar()" class="btn btn-light col-7 col-sm-7 col-md-6 col-lg-5 color">
+          <button
+            type="button"
+            (click)="entrar()"
+            class="btn btn-light col-7 col-sm-7 col-md-6 col-lg-5 color"
+          >
             Entrar
           </button>
         </div>

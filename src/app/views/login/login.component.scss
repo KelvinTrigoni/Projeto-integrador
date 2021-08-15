@@ -1,4 +1,4 @@
-.container-login{
+.container-login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,31 +7,55 @@
   border-radius: 10px;
 }
 
-.container{
+.container {
   height: 100vh;
 }
 
-.form-control{
+.form-control {
   color: white;
   background-color: transparent;
   border: 0px solid transparent;
-  border-bottom: 1px solid rgb(95,147,160);
+  border-bottom: 1px solid rgb(95, 147, 160);
   margin-top: 10px;
   margin-bottom: 20px;
   border-radius: 0px;
 
-  &:focus, &:active,&:hover {
+  &:focus,
+  &:active,
+  &:hover {
     box-shadow: 0 0 0 0 transparent;
   }
 }
 
-.container-input{
+.container-input {
   display: flex;
   flex-direction: column;
 }
 
-.btn{
-  margin-top: 90px;
+.btn {
+  margin-top: 55px;
   margin-bottom: 30px;
   border-radius: 20px;
+}
+
+//------
+.containerInput {
+  position: relative;
+}
+
+input:first-child {
+  margin-bottom: 45px;
+}
+
+span {
+  position: absolute;
+  top: 1px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+input:focus + span,
+input:valid + span {
+  top: -20px;
 }
